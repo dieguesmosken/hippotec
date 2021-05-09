@@ -17,15 +17,15 @@
     $(document).ready(function() {
         $("#insert").click(function() {
             var nome = $("#nome").val();
-            var desc = $("#desc").val();
-            var sint = $("#sint").val();
-            var trat = $("#trat").val();
-            var grau = $("#grau").val();
-            var dataString = "nome=" + nome + "&desc=" + desc + "&sint=" + sint + "&trat=" + trat + "&grau=" + grau + "&insert=";
-            if ($.trim(nome).length > 0 & $.trim(desc).length > 0 & $.trim(sint).length > 0 & $.trim(trat).length > 0 & $.trim(grau).length > 0) {
+            var email = $("#email").val();
+            var pass = $("#pass").val();
+            var cpf = $("#cpf").val();
+            var dtnasc = $("#dtnasc").val();
+            var dataString = "nome=" + nome + "&email=" + email + "&pass=" + pass + "&cpf=" + cpf + "&dtnasc=" + dtnasc + "&insert=";
+            if ($.trim(nome).length > 0 & $.trim(email).length > 0 & $.trim(pass).length > 0 & $.trim(cpf).length > 0 & $.trim(dtnasc).length > 0) {
                 $.ajax({
                     type: "POST",
-                    url: "http://localhost/2021/hpt/cadastrar_doe.php",
+                    url: "http://localhost/2021/hpt/cadastrar_usr.php",
                     data: dataString,
                     crossDomain: true,
                     cache: false,
@@ -51,7 +51,7 @@
 <body>
     <div class="bar bar-hearder bar-calm" style="margin-bottom: 80px;">
         <a href="index.html" class="button button-clear">Home</a>
-        <h1 class="title">Cadastro Doença</h1>
+        <h1 class="title">Cadastro De Usuario</h1>
         
     </div>
     <br>
@@ -59,26 +59,25 @@
     <div class="list">
         <input type="hidden" id="id" value=""/>
         <div class="item">
-            <label>Nome da Doença</label>
+            <label>Nome do Usuario</label>
             <input type="text" id="nome">
         </div>
         <div class="item">
-            <label>Descrição</label>
-            <input type="text" id="desc">
+            <label>Email</label>
+            <input type="email" id="email">
         </div>
         <div class="item">
-            <label>Sintomas</label>
-            <input type="text" id="sint">
+            <label>Senha Usuario</label>
+            <input type="password" id="pass">
         </div>
         <div class="item">
-            <label>Tratamento</label>
-            <input type="text" id="trat">
+            <label>CPF Usuario</label>
+            <input type="text" id="cpf">
         </div>
         <div class="item">
-            <label>Grau</label>
-            <input type="text" id="grau">
+            <label>Data de Nascimento</label>
+            <input type="date" id="dtnasc">
         </div>
-
         <div class="item">
             <input type="button" id="insert" class="button button-block button-positive" value="Cadastrar">
         </div>
